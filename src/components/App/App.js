@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Button } from "reactstrap";
+import logo from "./logo.svg";
 
 class App extends Component {
   render() {
@@ -20,6 +20,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <Button>Bootstrap</Button>
       </div>
     );
   }

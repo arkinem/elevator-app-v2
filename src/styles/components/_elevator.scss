@@ -1,0 +1,105 @@
+.elevator-container {
+  width: 400px;
+  height: 400px;
+  background-color: $dark-grey;
+  position: relative;
+  float: left;
+  margin-top: 50px;
+  margin-left: 50px;
+
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.elevator-ground {
+  width: 350px;
+  height: 5px;
+  background-color: $pink;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.elevator-cabin {
+  width: 120px;
+  height: 150px;
+  border: 5px dashed $pink;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin-top: 23px;
+  z-index: 1;
+
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+.elevator-door {
+  z-index: 2;
+  width: 140px;
+  height: 170px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.elevator-door-unit {
+  float: left;
+  width: 50%;
+  border: 1px solid $silver;
+  background-color: rgba(5, 5, 5, 0.5);
+  height: 100%;
+}
+
+.elevator-request-button-container {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background-color: rgba(5, 4, 4, 0.788);
+  margin-left: 50px;
+}
+
+.elevator-request-button {
+  width: 25px;
+  height: 25px;
+  background-color: $pink;
+  margin: 15px auto;
+
+  border-radius: 13px;
+  -moz-border-radius: 13px;
+  -webkit-border-radius: 13px;
+}
+
+.elevator-cabin-door {
+  width: 120px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin-top: 23px;
+  z-index: 2;
+}
+
+.elevator-cabin-door-unit {
+  position: absolute;
+  float: left;
+  width: 50%;
+  height: 100%;
+  background-color: rgba($pink, 0.1);
+
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}

@@ -1,0 +1,17 @@
+.main-page {
+  height: 100vh;
+  min-width: 600px;
+  width: 100%;
+  background-color: $grey;
+}
+
+.main-container {
+  height: 500px;
+  width: 600px;
+  min-width: 600px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

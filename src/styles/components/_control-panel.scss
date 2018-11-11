@@ -1,0 +1,49 @@
+.control-panel {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: $dark-grey;
+  width: 100px;
+  height: 200px;
+  float: left;
+  margin-top: 150px;
+  margin-left: 20px;
+}
+
+.control-panel-display {
+  background-color: rgb(5, 5, 5);
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+  margin-top: 20px;
+  padding-top: 10px;
+
+  text-align: center;
+
+  span {
+    color: whitesmoke;
+    font-weight: 800;
+    font-size: $font-size-xlarge;
+  }
+}
+
+.control-panel-button {
+  background-color: $pink;
+  width: 40px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: 10px;
+  padding-top: 6px;
+
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+
+  text-align: center;
+
+  span {
+    color: black;
+    font-weight: 800;
+    font-size: $font-size-large;
+  }
+}
