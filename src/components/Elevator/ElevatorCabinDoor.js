@@ -1,20 +1,33 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const ElevatorCabinDoor = () => (
+const ElevatorCabinDoor = props => (
   <div className="elevator-cabin-door">
     <div
       className="elevator-cabin-door-unit"
       style={{
-        marginLeft: 0
+        marginLeft: props.elevatorLeftDoorMargin,
+        marginTop: props.elevatorCabinMarginTop
+          ? props.elevatorCabinMarginTop
+          : "223px"
       }}
     />
     <div
       className="elevator-cabin-door-unit"
       style={{
-        marginLeft: "60px"
+        marginLeft: props.elevatorRightDoorMargin,
+        marginTop: props.elevatorCabinMarginTop
+          ? props.elevatorCabinMarginTop
+          : "223px"
       }}
     />
   </div>
 );
 
-export default ElevatorCabinDoor;
+const mapStateToProps = state => ({
+  elevatorCabinMarginTop: state.elevator.elevatorCabinMarginTop,
+  elevatorLeftDoorMargin: state.elevator.elevatorLeftDoorMargin,
+  elevatorRightDoorMargin: state.elevator.elevatorRightDoorMargin
+});
+
+export default connect(mapStateToProps)(ElevatorCabinDoor);

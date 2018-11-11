@@ -1,9 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
 const ControlPanel = props => (
   <div className="control-panel">
     <div className="control-panel-display">
-      <span>1</span>
+      <span>{props.elevatorLocation}</span>
     </div>
 
     <div className="control-panel-button">
@@ -16,4 +17,8 @@ const ControlPanel = props => (
   </div>
 );
 
-export default ControlPanel;
+const mapStateToProps = state => ({
+  elevatorLocation: state.elevator.elevatorLocation
+});
+
+export default connect(mapStateToProps)(ControlPanel);

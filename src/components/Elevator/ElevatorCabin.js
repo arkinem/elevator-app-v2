@@ -1,5 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const ElevatorCabin = () => <div className="elevator-cabin" />;
+const ElevatorCabin = props => (
+  <div
+    className="elevator-cabin"
+    style={{
+      marginTop: props.elevatorCabinMarginTop
+        ? props.elevatorCabinMarginTop
+        : "223px"
+    }}
+  />
+);
 
-export default ElevatorCabin;
+const mapStateToProps = state => ({
+  elevatorCabinMarginTop: state.elevator.elevatorCabinMarginTop
+});
+
+export default connect(mapStateToProps)(ElevatorCabin);
