@@ -14,6 +14,16 @@ const ElevatorRequestButton = props => (
           ? props.requestGroundFloor()
           : props.requestFirstFloor();
       }}
+      style={{
+        backgroundColor:
+          props.floor === 0
+            ? props.goToGroundWhenPossible || props.elevatorIsMovingToGround
+              ? "rgb(255, 2, 104)"
+              : "rgb(112, 0, 45)"
+            : props.goToFirstWhenPossible || props.elevatorIsMovingToFirst
+            ? "rgb(255, 2, 104)"
+            : "rgb(112, 0, 45)"
+      }}
     />
   </div>
 );
@@ -23,7 +33,14 @@ const mapDispatchToProps = dispatch => ({
   requestFirstFloor: () => dispatch(requestFirstFloor())
 });
 
+const mapStateToProps = state => ({
+  goToGroundWhenPossible: state.elevator.goToGroundWhenPossible,
+  elevatorIsMovingToGround: state.elevator.elevatorIsMovingToGround,
+  goToFirstWhenPossible: state.elevator.goToFirstWhenPossible,
+  elevatorIsMovingToFirst: state.elevator.elevatorIsMovingToFirst
+});
+
 export default connect(
-  undefined,
+  mapStateToProps,
   mapDispatchToProps
 )(ElevatorRequestButton);
