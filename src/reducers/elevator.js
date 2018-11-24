@@ -4,7 +4,6 @@ const elevatorReducerDefaultState = {
   elevatorLocation: 0,
   elevatorIsMovingToGround: false,
   elevatorIsMovingToFirst: false,
-  elevatorCabinMarginTop: "273px",
   goToGroundWhenPossible: false,
   goToFirstWhenPossible: false
 };
@@ -22,11 +21,6 @@ export default (state = elevatorReducerDefaultState, action) => {
       return {
         ...state,
         elevatorIsMovingToFirst: action.elevatorIsMovingToFirst
-      };
-    case "SET_ELEVATOR_CABIN_MARGIN_TOP":
-      return {
-        ...state,
-        elevatorCabinMarginTop: action.elevatorCabinMarginTop
       };
     case "SET_GO_TO_GROUND_WHEN_POSSIBLE":
       return {

@@ -1,8 +1,6 @@
 // Elevator Door Reducer
 
 const elevatorDoorReducerDefaultState = {
-  elevatorLeftDoorMargin: 0,
-  elevatorRightDoorMargin: 60,
   elevatorDoorOpen: false,
   elevatorDoorOpening: false,
   elevatorDoorClosed: true,
@@ -11,16 +9,6 @@ const elevatorDoorReducerDefaultState = {
 
 export default (state = elevatorDoorReducerDefaultState, action) => {
   switch (action.type) {
-    case "SET_ELEVATOR_LEFT_DOOR_MARGIN":
-      return {
-        ...state,
-        elevatorLeftDoorMargin: action.elevatorLeftDoorMargin
-      };
-    case "SET_ELEVATOR_RIGHT_DOOR_MARGIN":
-      return {
-        ...state,
-        elevatorRightDoorMargin: action.elevatorRightDoorMargin
-      };
     case "ELEVATOR_DOOR_OPENING":
       return {
         ...state,

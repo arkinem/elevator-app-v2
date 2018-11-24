@@ -1,17 +1,5 @@
-import { sleep } from "../helpers/delay";
 import { operateGroundFloorDoor, setGroundFloorDoorCounter } from "./groundFloorDoor";
 import { operateFirstFloorDoor, setFirstFloorDoorCounter } from "./firstFloorDoor";
-
-
-export const setGoToGroundWhenPossible = value => ({
-  type: "SET_GO_TO_GROUND_WHEN_POSSIBLE",
-  goToGroundWhenPossible: value
-});
-
-export const setGoToFirstWhenPossible = value => ({
-  type: "SET_GO_TO_FIRST_WHEN_POSSIBLE",
-  goToFirstWhenPossible: value
-});
 
 export function requestGroundFloor() {
   return async (dispatch, getState) => {
@@ -36,7 +24,7 @@ export function requestGroundFloor() {
       ) {
         dispatch(setGoToGroundWhenPossible(true));
       } else {
-        await dispatch(moveElevatorToGround());
+        dispatch(setElevatorIsMovingToGround(true));
       }
     }
   };
@@ -65,59 +53,33 @@ export function requestFirstFloor() {
       ) {
         dispatch(setGoToFirstWhenPossible(true));
       } else {
-        await dispatch(moveElevatorToFirst());
+        await dispatch(setElevatorIsMovingToFirst(true));
       }
     }
   };
 }
 
-const setElevatorLocation = location => ({
+export const setGoToGroundWhenPossible = value => ({
+  type: "SET_GO_TO_GROUND_WHEN_POSSIBLE",
+  goToGroundWhenPossible: value
+});
+
+export const setGoToFirstWhenPossible = value => ({
+  type: "SET_GO_TO_FIRST_WHEN_POSSIBLE",
+  goToFirstWhenPossible: value
+});
+
+export const setElevatorLocation = location => ({
   type: "SET_ELEVATOR_LOCATION",
   elevatorLocation: location
 });
 
-const setElevatorIsMovingToGround = value => ({
+export const setElevatorIsMovingToGround = value => ({
   type: "SET_ELEVATOR_IS_MOVING_TO_GROUND",
   elevatorIsMovingToGround: value
 });
 
-const setElevatorIsMovingToFirst = value => ({
+export const setElevatorIsMovingToFirst = value => ({
   type: "SET_ELEVATOR_IS_MOVING_TO_FIRST",
   elevatorIsMovingToFirst: value
 });
-
-const setElevatorCabinMarginTop = marginTop => ({
-  type: "SET_ELEVATOR_CABIN_MARGIN_TOP",
-  elevatorCabinMarginTop: marginTop
-});
-
-function moveElevatorToGround() {
-  return async dispatch => {
-    dispatch(setElevatorIsMovingToGround(true));
-
-    for (let marginTop = 48; marginTop < 274; marginTop++) {
-      dispatch(setElevatorCabinMarginTop(marginTop + "px"));
-      await sleep(15);
-
-    }
-
-    dispatch(setElevatorIsMovingToGround(false));
-    dispatch(setElevatorLocation(0));
-    await dispatch(operateGroundFloorDoor());
-  };
-}
-
-function moveElevatorToFirst() {
-  return async dispatch => {
-    dispatch(setElevatorIsMovingToFirst(true));
-
-    for (let marginTop = 273; marginTop > 47; marginTop--) {
-      dispatch(setElevatorCabinMarginTop(marginTop + "px"));
-      await sleep(15);
-    }
-
-    dispatch(setElevatorIsMovingToFirst(false));
-    dispatch(setElevatorLocation(1));
-    await dispatch(operateFirstFloorDoor());
-  };
-}
