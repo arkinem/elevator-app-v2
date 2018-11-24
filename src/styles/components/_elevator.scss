@@ -13,6 +13,7 @@
 }
 
 .elevator-ground {
+  z-index: 99;
   width: 350px;
   height: 5px;
   background-color: $pink;
@@ -101,4 +102,20 @@
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+}
+
+.floorDisplay {
+  z-index: 99;
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  margin-left: 180px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 20px;
+  background-color: black;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
