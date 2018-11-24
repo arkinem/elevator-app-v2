@@ -8,7 +8,7 @@ import ElevatorCabinDoor from "./ElevatorCabinDoor";
 
 const Elevator = props => (
   <div className="elevator-container">
-    <ElevatorRequestButton floor={1} marginTop={65} />
+    <ElevatorRequestButton floor={1} marginTop={90} />
     <ElevatorDoorUnit
       marginTop={38}
       marginLeft={props.firstFloorLeftDoorMargin}
@@ -20,7 +20,7 @@ const Elevator = props => (
     <ElevatorCabinDoor />
     <ElevatorCabin />
     <ElevatorGround />
-    <ElevatorRequestButton floor={0} marginTop={265} />
+    <ElevatorRequestButton floor={0} marginTop={315} />
     <ElevatorDoorUnit
       marginTop={263}
       marginLeft={props.groundFloorLeftDoorMargin}
