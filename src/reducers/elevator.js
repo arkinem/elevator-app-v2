@@ -4,7 +4,7 @@ const elevatorReducerDefaultState = {
   elevatorLocation: 0,
   elevatorIsMovingToGround: false,
   elevatorIsMovingToFirst: false,
-  elevatorCabinMarginTop: "223px",
+  elevatorCabinMarginTop: "273px",
   goToGroundWhenPossible: false,
   goToFirstWhenPossible: false
 };

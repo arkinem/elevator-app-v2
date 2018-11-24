@@ -95,7 +95,7 @@ function moveElevatorToGround() {
   return async dispatch => {
     dispatch(setElevatorIsMovingToGround(true));
 
-    for (let marginTop = 23; marginTop < 224; marginTop++) {
+    for (let marginTop = 48; marginTop < 274; marginTop++) {
       dispatch(setElevatorCabinMarginTop(marginTop + "px"));
       await sleep(15);
 
@@ -111,7 +111,7 @@ function moveElevatorToFirst() {
   return async dispatch => {
     dispatch(setElevatorIsMovingToFirst(true));
 
-    for (let marginTop = 224; marginTop > 22; marginTop--) {
+    for (let marginTop = 273; marginTop > 47; marginTop--) {
       dispatch(setElevatorCabinMarginTop(marginTop + "px"));
       await sleep(15);
     }

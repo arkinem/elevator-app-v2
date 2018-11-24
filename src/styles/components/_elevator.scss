@@ -1,6 +1,6 @@
 .elevator-container {
   width: 400px;
-  height: 400px;
+  height: 450px;
   background-color: $dark-grey;
   position: relative;
   float: left;
@@ -34,7 +34,7 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0%);
-  margin-top: 23px;
+  margin-top: 48px;
   z-index: 1;
 
   border-radius: 10px;

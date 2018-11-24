@@ -7,7 +7,7 @@ const ElevatorCabin = props => (
     style={{
       marginTop: props.elevatorCabinMarginTop
         ? props.elevatorCabinMarginTop
-        : "223px"
+        : "273px"
     }}
   />
 );

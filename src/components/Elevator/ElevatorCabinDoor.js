@@ -9,7 +9,7 @@ const ElevatorCabinDoor = props => (
         marginLeft: props.elevatorLeftDoorMargin,
         marginTop: props.elevatorCabinMarginTop
           ? props.elevatorCabinMarginTop
-          : "223px"
+          : "273px"
       }}
     />
     <div
@@ -18,7 +18,7 @@ const ElevatorCabinDoor = props => (
         marginLeft: props.elevatorRightDoorMargin,
         marginTop: props.elevatorCabinMarginTop
           ? props.elevatorCabinMarginTop
-          : "223px"
+          : "273px"
       }}
     />
   </div>
