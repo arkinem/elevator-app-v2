@@ -26,8 +26,8 @@ const ElevatorCabinDoor = props => (
 
 const mapStateToProps = state => ({
   elevatorCabinMarginTop: state.elevator.elevatorCabinMarginTop,
-  elevatorLeftDoorMargin: state.elevator.elevatorLeftDoorMargin,
-  elevatorRightDoorMargin: state.elevator.elevatorRightDoorMargin
+  elevatorLeftDoorMargin: state.elevatorDoor.elevatorLeftDoorMargin,
+  elevatorRightDoorMargin: state.elevatorDoor.elevatorRightDoorMargin
 });
 
 export default connect(mapStateToProps)(ElevatorCabinDoor);
