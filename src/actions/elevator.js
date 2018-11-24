@@ -9,11 +9,9 @@ export function requestGroundFloor() {
     } else if (getState().elevator.elevatorLocation === 0) {
       if (getState().groundFloorDoor.groundFloorDoorOpen) {
         dispatch(setGroundFloorDoorCounter(5));
-      }
-      if (getState().groundFloorDoor.groundFloorDoorClosed) {
+      } else if (getState().groundFloorDoor.groundFloorDoorClosed) {
         await dispatch(operateGroundFloorDoor());
-      }
-      if (getState().groundFloorDoor.groundFloorDoorClosing) {
+      } else if (getState().groundFloorDoor.groundFloorDoorClosing) {
         dispatch(setGoToGroundWhenPossible(true));
       }
     } else if (getState().elevator.elevatorLocation === 1) {
@@ -38,11 +36,9 @@ export function requestFirstFloor() {
     } else if (getState().elevator.elevatorLocation === 1) {
       if (getState().firstFloorDoor.firstFloorDoorOpen) {
         dispatch(setFirstFloorDoorCounter(5));
-      }
-      if (getState().firstFloorDoor.firstFloorDoorClosed) {
+      } else if (getState().firstFloorDoor.firstFloorDoorClosed) {
         await dispatch(operateFirstFloorDoor());
-      }
-      if (getState().firstFloorDoor.firstFloorDoorClosing) {
+      } else if (getState().firstFloorDoor.firstFloorDoorClosing) {
         dispatch(setGoToFirstWhenPossible(true));
       }
     } else if (getState().elevator.elevatorLocation === 0) {

@@ -1,12 +1,18 @@
+import { sleep } from "../helpers/delay";
+
 export function openElevatorDoor() {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch(startOpenElevatorDoor());
+    while (!getState().elevatorDoor.elevatorDoorOpen)
+      await sleep(150);
   };
 }
 
 export function closeElevatorDoor() {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch(startClosingElevatorDoor());
+    while (!getState().elevatorDoor.elevatorDoorClosed)
+      await sleep(150);
   };
 }
 

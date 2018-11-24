@@ -12,11 +12,13 @@ const Elevator = props => (
     <ElevatorRequestButton floor={1} marginTop={90} />
     <FloorDisplay marginTop={12} />
     <ElevatorDoorUnit
-      marginTop={38}
+      floor={1}
+      type={"left"}
       marginLeft={props.firstFloorLeftDoorMargin}
     />
     <ElevatorDoorUnit
-      marginTop={38}
+      floor={1}
+      type={"right"}
       marginLeft={props.firstFloorRightDoorMargin}
     />
     <ElevatorCabinDoor />
@@ -27,11 +29,13 @@ const Elevator = props => (
     <ElevatorRequestButton floor={0} marginTop={315} />
     <FloorDisplay marginTop={237} />
     <ElevatorDoorUnit
-      marginTop={263}
+      floor={0}
+      type={"left"}
       marginLeft={props.groundFloorLeftDoorMargin}
     />
     <ElevatorDoorUnit
-      marginTop={263}
+      floor={0}
+      type={"right"}
       marginLeft={props.groundFloorRightDoorMargin}
     />
   </div>

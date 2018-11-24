@@ -1,8 +1,6 @@
 // First Floor Door Reducer
 
 const firstFloorDoorReducerDefaultState = {
-  firstFloorLeftDoorMargin: 165,
-  firstFloorRightDoorMargin: 235,
   firstFloorDoorOpen: false,
   firstFloorDoorOpening: false,
   firstFloorDoorClosed: true,
@@ -12,16 +10,6 @@ const firstFloorDoorReducerDefaultState = {
 
 export default (state = firstFloorDoorReducerDefaultState, action) => {
   switch (action.type) {
-    case "SET_FIRST_LEFT_DOOR_MARGIN":
-      return {
-        ...state,
-        firstFloorLeftDoorMargin: action.firstFloorLeftDoorMargin
-      };
-    case "SET_FIRST_RIGHT_DOOR_MARGIN":
-      return {
-        ...state,
-        firstFloorRightDoorMargin: action.firstFloorRightDoorMargin
-      };
     case "SET_FIRST_FLOOR_DOOR_COUNTER":
       return {
         ...state,

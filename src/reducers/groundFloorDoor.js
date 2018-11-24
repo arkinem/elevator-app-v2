@@ -1,8 +1,6 @@
 // Ground Floor Door Reducer
 
 const groundFloorDoorReducerDefaultState = {
-  groundFloorLeftDoorMargin: 165,
-  groundFloorRightDoorMargin: 235,
   groundFloorDoorOpen: false,
   groundFloorDoorOpening: false,
   groundFloorDoorClosed: true,
@@ -12,16 +10,6 @@ const groundFloorDoorReducerDefaultState = {
 
 export default (state = groundFloorDoorReducerDefaultState, action) => {
   switch (action.type) {
-    case "SET_GROUND_LEFT_DOOR_MARGIN":
-      return {
-        ...state,
-        groundFloorLeftDoorMargin: action.groundFloorLeftDoorMargin
-      };
-    case "SET_GROUND_RIGHT_DOOR_MARGIN":
-      return {
-        ...state,
-        groundFloorRightDoorMargin: action.groundFloorRightDoorMargin
-      };
     case "SET_GROUND_FLOOR_DOOR_COUNTER":
       return {
         ...state,

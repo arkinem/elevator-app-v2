@@ -2,14 +2,9 @@ import { sleep } from "../helpers/delay";
 import { openElevatorDoor, closeElevatorDoor } from "./elevatorDoor";
 import { setGoToGroundWhenPossible, requestGroundFloor, requestFirstFloor } from "./elevator";
 
-export const setGroundFloorDoorCounter = value => ({
-  type: "SET_GROUND_FLOOR_DOOR_COUNTER",
-  groundFloorDoorCounter: value
-});
-
 export function operateGroundFloorDoor() {
   return async (dispatch, getState) => {
-    dispatch(openGroundFloorDoor());
+    dispatch(startOpenGroundFloorDoor());
     await dispatch(openElevatorDoor());
     dispatch(setGoToGroundWhenPossible(false));
     dispatch(setGroundFloorDoorCounter(5));
@@ -21,8 +16,8 @@ export function operateGroundFloorDoor() {
       dispatch(setGroundFloorDoorCounter(i - 1));
       await sleep(1000);
     }
-    dispatch(closeElevatorDoor());
-    await dispatch(closeGroundFloorDoor());
+    dispatch(startClosingGroundFloorDoor());
+    await dispatch(closeElevatorDoor());
 
     if (getState().elevator.goToGroundWhenPossible)
       dispatch(requestGroundFloor());
@@ -32,68 +27,23 @@ export function operateGroundFloorDoor() {
   };
 }
 
-const setGroundLeftDoorMargin = marginLeft => ({
-  type: "SET_GROUND_LEFT_DOOR_MARGIN",
-  groundFloorLeftDoorMargin: marginLeft
+export const setGroundFloorDoorCounter = value => ({
+  type: "SET_GROUND_FLOOR_DOOR_COUNTER",
+  groundFloorDoorCounter: value
 });
 
-const setGroundRightDoorMargin = marginLeft => ({
-  type: "SET_GROUND_RIGHT_DOOR_MARGIN",
-  groundFloorRightDoorMargin: marginLeft
-});
-
-const startOpenGroundFloorDoor = () => ({
-  type: "GROUND_FLOOR_DOOR_OPENING"
-});
-
-const setGroundFloorDoorOpen = () => ({
+export const setGroundFloorDoorOpen = () => ({
   type: "GROUND_FLOOR_DOOR_OPEN"
+});
+
+export const setGroundFloorDoorClosed = () => ({
+  type: "GROUND_FLOOR_DOOR_CLOSED"
 });
 
 const startClosingGroundFloorDoor = () => ({
   type: "GROUND_FLOOR_DOOR_CLOSING"
 });
 
-const setGroundFloorDoorClosed = () => ({
-  type: "GROUND_FLOOR_DOOR_CLOSED"
+const startOpenGroundFloorDoor = () => ({
+  type: "GROUND_FLOOR_DOOR_OPENING"
 });
-
-function openGroundFloorDoor() {
-  return async (dispatch, getState) => {
-    dispatch(startOpenGroundFloorDoor());
-    for (let i = 0; i < 60; i++) {
-      dispatch(
-        setGroundLeftDoorMargin(
-          getState().groundFloorDoor.groundFloorLeftDoorMargin - 1
-        )
-      );
-      dispatch(
-        setGroundRightDoorMargin(
-          getState().groundFloorDoor.groundFloorRightDoorMargin + 1
-        )
-      );
-      await sleep(15);
-    }
-    dispatch(setGroundFloorDoorOpen());
-  };
-}
-
-function closeGroundFloorDoor() {
-  return async (dispatch, getState) => {
-    dispatch(startClosingGroundFloorDoor());
-    for (let i = 0; i < 60; i++) {
-      dispatch(
-        setGroundLeftDoorMargin(
-          getState().groundFloorDoor.groundFloorLeftDoorMargin + 1
-        )
-      );
-      dispatch(
-        setGroundRightDoorMargin(
-          getState().groundFloorDoor.groundFloorRightDoorMargin - 1
-        )
-      );
-      await sleep(15);
-    }
-    dispatch(setGroundFloorDoorClosed());
-  };
-}
